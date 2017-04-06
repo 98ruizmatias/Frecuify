@@ -1,84 +1,81 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Conversor</title>
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
-	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	<script>
-		var notas=['Do', 'Do#', 'Re', 'Re#', 'Mi',
-		           'Fa', 'Fa#', 'Sol', 'Sol#',
-		           'La', 'La#', 'Si'];
+	<head>
+		<title>Notify</title>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script>
+			var notas=['Do', 'Do#', 'Re', 'Re#', 'Mi',
+			           'Fa', 'Fa#', 'Sol', 'Sol#',
+			           'La', 'La#', 'Si'];
 
-		function imprimeFreq()
-		{
-		  var nota=Number($("#nota").val());
-		  var octava=Number($("#octava").val());
-		  $("#freq").html(freq(nota,octava).toFixed(3));
-		  $("#nombrenota").html(notas[nota-1]);
+			function imprimeFreq()
+			{
+			  var nota=Number($("#nota").val());
+			  var octava=Number($("#octava").val());
+			  $("#freq").html(freq(nota,octava).toFixed(3));
+			  $("#nombrenota").html(notas[nota-1]);
 
-		}
+			}
 
-		function freq(nota, octava) {
-		  return 440.0*Math.exp(
-		    (
-		      (octava-4)+
-		      (nota-10)/12.0
-		    )
-		    *Math.log(2.0)
-		  );
-		}
+			function freq(nota, octava) {
+			  return 440.0*Math.exp(
+			    (
+			      (octava-4)+
+			      (nota-10)/12.0
+			    )
+			    *Math.log(2.0)
+			  );
+			}
 
-		var context=new AudioContext();
+			var context=new AudioContext();
 
 
-		function bip(f) {
-		var oscillator;
-		oscillator=context.createOscillator();
-		oscillator.frequency.value = f;
+			function bip(f) {
+			var oscillator;
+			oscillator=context.createOscillator();
+			oscillator.frequency.value = f;
 
-		oscillator.connect(context.destination);
+			oscillator.connect(context.destination);
 
-		oscillator.start(0);
-		  
-		window.setTimeout(function(){oscillator.stop()}, 300);
-		}
+			oscillator.start(0);
+			  
+			window.setTimeout(function(){oscillator.stop()}, 300);
+			}
 
-		function suena(){
-		  
-		  var frecuencia=Number($("#freq").html());
-		  bip(frecuencia);
-		}
+			function suena(){
+			  
+			  var frecuencia=Number($("#freq").html());
+			  bip(frecuencia);
+			}
 
-		$(function(){
-		        $("#octava").change(imprimeFreq);
-		        $("#nota").change(imprimeFreq);
-		        $("#suena").click(suena);
-		    });
-		</script>
-</head>
-<body>
-	<form action="#" style="border:1px black dotted;padding:10px;width:300px;" id="all">
-		"
-		  Octava: "
-		<input id="octava" type="number" min="0" max="10" value="4" required="">
-		<br>
-		"
-		  Nota: "
-		<input id="nota" type="number" min="1" max="12" value="10" required=""> 
-		" ("
-		<span id="nombrenota">Si</span>
-		")
+			$(function(){
+			        $("#octava").change(imprimeFreq);
+			        $("#nota").change(imprimeFreq);
+			        $("#suena").click(suena);
+			    });
+			</script>
+	</head>
+	<body>
+		<!-- <h1 id="ti">NOTIFY</h1> -->
 
-		"
-
-		<div>
-		 	"
-		 	Frecuencia: "
-		 	<span id="freq">31608.531</span>
-		 	"Hz "
+		<form action="#" id="all">
+			  Octava: 
+			<input id="octava" type="number" min="0" max="10" value="4" required="">
 			<br>
-		</div>
-		 
+			  Nota:
+			<input id="nota" type="number" min="1" max="12" value="10" required=""> 
+			 (
+			<span id="nombrenota">Si</span>
+			)
+			<div>
+			 	Frecuencia: 
+			 	<span id="freq">31608.531</span>
+			 	Hz 
+				<br>
+			</div>
 		</form>
-</body>
+
+	</body>
 </html>
