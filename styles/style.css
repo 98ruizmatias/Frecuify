@@ -1,6 +1,7 @@
 body {
     background-color: #2b2b2b;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 
 #ti {
@@ -16,7 +17,7 @@ body {
     margin: auto;
     margin-top: 15%;
     width: 24rem;
-    width: 26rem;
+    width: 27rem;
     border: 1px black dotted;
     padding: 2rem;
     font-size: 3rem;
@@ -28,4 +29,8 @@ input {
     border: none;
     border-bottom: 1px black dotted;
     width: 19%;
+    font-weight: regular;
+    color: #a6a592;
+    text-align: center;
 }
+
