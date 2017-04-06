@@ -7,7 +7,10 @@
 		
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
 
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		
 		<script>
 			var notas=['C', 'C#', 'D', 'D#', 'E',
 			           'F', 'F#', 'G', 'G#',
@@ -32,31 +35,9 @@
 			  );
 			}
 
-			var context=new AudioContext();
-
-
-			function bip(f) {
-			var oscillator;
-			oscillator=context.createOscillator();
-			oscillator.frequency.value = f;
-
-			oscillator.connect(context.destination);
-
-			oscillator.start(0);
-			  
-			window.setTimeout(function(){oscillator.stop()}, 300);
-			}
-
-			function suena(){
-			  
-			  var frecuencia=Number($("#freq").html());
-			  bip(frecuencia);
-			}
-
 			$(function(){
 			        $("#octava").change(imprimeFreq);
 			        $("#nota").change(imprimeFreq);
-			        $("#suena").click(suena);
 			    });
 			</script>
 	</head>
