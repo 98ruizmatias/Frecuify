@@ -15,7 +15,7 @@ body {
 	box-sizing: border-box;
     position: relative;
     margin: auto;
-    margin-top: 15%;
+    margin-top: 5%;
     width: 24rem;
     width: 27rem;
     border: 1px black dotted;
@@ -34,3 +34,19 @@ input {
     text-align: center;
 }
 
+
+#logo{
+	width: 15rem;
+    height: 15rem;
+    background-position: center;
+    position: relative;
+    background-size: 100% 100%;
+    border: none;
+    border-radius: 5%;
+    box-shadow: 10px 10px 14px -10px rgba(0,0,0,0.59);
+    margin: auto;
+}
+
+div#logo{
+	margin-top: 5%;
+}
