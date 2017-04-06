@@ -64,18 +64,18 @@
 		<div id="logo" style="background-image: url(logo.png);"> </div>
 		
 		<form action="#" id="all" class="lead">
-			  Octave: 
-			<input id="octava" type="number" min="0" max="10" value="4" required="">
+			<p>Octave: </p>
+			<input id="octava" type="number" min="0" max="10" value="4" required="" pattern="\d*">
 			<br>
-			  Note:
+			<p>Note: </p>
 			<input id="nota" type="number" min="1" max="12" value="10" required=""> 
-			 (
+			<p> (</p>
 			<span id="nombrenota">B</span>
-			)
+			<p> )</p>
 			<div>
-			 	Frecuency: 
+			 	<p>Frecuency:</p> 
 			 	<span id="freq">31608.531</span>
-			 	Hz 
+			 	<p id="hz">Hz </p> 
 				<br>
 			</div>
 		</form>

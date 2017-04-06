@@ -50,3 +50,18 @@ input {
 div#logo{
 	margin-top: 5%;
 }
+
+p{
+	display: inline-block;
+	margin: 0;
+}
+
+#freq {
+	font-weight: normal;
+    color: #a6a592;	
+}
+
+#hz {
+	font-weight: normal;
+    color: #a6a592;	
+}
